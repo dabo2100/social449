@@ -29,6 +29,10 @@ export default function LoginPage() {
 
   useEffect(() => {
     let isActive = localStorage.getItem('Active User');
+    let users = localStorage.getItem('users');
+    if (!users) {
+      localStorage.setItem('users', JSON.stringify([{ email: 'ali@icloud.com', password: 123456 }]));
+    }
     if (isActive) {
       navigate('/');
     }
